@@ -1,0 +1,25 @@
+{
+  "name": "LIRI_Bot",
+  "version": "1.0.0",
+  "description": "A Language Interpretation and Recognition Interface",
+  "main": "liri.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/medricr/LIRI_Bot.git"
+  },
+  "keywords": [],
+  "author": "Medric A. Riley",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "dotenv": "^8.0.0",
+    "node-spotify-api": "^1.1.1"
+  },
+  "bugs": {
+    "url": "https://github.com/medricr/LIRI_Bot/issues"
+  },
+  "homepage": "https://github.com/medricr/LIRI_Bot#readme"
+}
