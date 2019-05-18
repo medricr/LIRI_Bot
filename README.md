@@ -15,6 +15,7 @@ This app will take arguments from the node command line and use those arguments 
     - dotenv
 #### PROJECT USAGE
 This program is used by entering one of the pre-defined commands, followed by a single or multi-word argument. The commands are as follows: 
+
 Command Header | Command Functionality
 ---------------|----------------------
 spotify-this-song <SONG NAME> | Returns the top 5 search results from spotify & prints them to the console
