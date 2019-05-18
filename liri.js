@@ -16,10 +16,7 @@ var user_command = process.argv[2];
 if(process.argv.length > 4){
     var command_arg = process.argv.slice(3).join(" ");
 }
-
 //LIRI FUNCTIONS
-// **********************************************
-// TESTED - POSSIBLE FORMATTING IMPROVEMENTS
 function concert_this(arg){
     // some code
     var query_url = "https://rest.bandsintown.com/artists/" + arg + "/events?app_id=codingbootcamp"
@@ -32,7 +29,6 @@ function concert_this(arg){
         }
     })
 }
-// TESTED - FINISHED
 function spotify_this(arg){
     spotify.search({type: "track", query: arg, limit: 5}, function(err,data){
         if(err){
@@ -46,7 +42,6 @@ function spotify_this(arg){
             }
     })
 }
-// TESTED - FINISHED
 function movie_this(arg){
     var query_url = "http://www.omdbapi.com/?t=" + arg + "&y=&plot=short&apikey=trilogy";
     axios.get(query_url).then(function(response){
@@ -54,16 +49,17 @@ function movie_this(arg){
         console.log("----------------------\nTitle: " + movie.Title + "\nRelease Year: " + movie.Year + "\nIMDB Rating: " + movie.imdbRating + "\nRT Rating: " + movie.Ratings[1].Value + "\nCountry: " + movie.Country + "\nLanguage: " + movie.Language + "\nPlot: " + movie.Plot + "\nActors: " + movie.Actors);
     })
 }
-// TODO
 function do_it(){
     console.log("do it fire");
      fs.readFile("./random.txt","utf8",function(err,contents){
         var arg = contents.split(", ")
-        spotify_this(arg[1]);
+        user_command = arg[0];
+        command_arg = arg[1];
+        parse_and_run();
      })
 }
 // LIRI PARSING LOGIC
-// **********************************************
+function parse_and_run(){
 switch(user_command){
     case "concert-this":
         if(command_arg == undefined){command_arg = "shannon and the clams";}
@@ -78,10 +74,11 @@ switch(user_command){
         movie_this(command_arg);
         break;
     case "do-what-it-says":
-        console.log("do fire");
         do_it();
         break;
     default: 
         console.log("INVALID COMMAND | PLEASE RE-ENTER");
         break;
 }
+}
+parse_and_run();
